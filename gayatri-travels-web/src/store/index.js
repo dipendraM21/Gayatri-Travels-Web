@@ -8,7 +8,6 @@ import { rootSaga } from './saga/index'
 const bindMiddleware = (middleware) => {
   return applyMiddleware(...middleware)
 }
-
 function initStore(initialState = {}) {
   const sagaMiddleware = createSagaMiddleware()
   const store = legacy_createStore(
