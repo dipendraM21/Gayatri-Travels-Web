@@ -24,5 +24,6 @@ export const theme: Theme = {
     },
     buttons: {},
 
+    // breakpoints: ['390px', '768px', '1024px', '1280px', '1366px', '1920px'], TODO CHANGE 
 
 }
