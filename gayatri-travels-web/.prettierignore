@@ -1,0 +1,7 @@
+node_modules/
+.next/
+public/
+.cache/
+*.log
+*.tmp
+bash_scripts/

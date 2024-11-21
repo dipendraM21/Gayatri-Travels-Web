@@ -13,12 +13,12 @@
 //   import Cookies from 'js-cookie'
 //   import { signOut } from 'next-auth/react'
 //   import { ApiError } from 'next/dist/server/api-utils'
-  
+
 //   interface apiHeaders {
 //     Accept: string
 //     [key: string]: string
 //   }
-  
+
 //   class NetworkClient {
 //     private service: AxiosInstance
 //     private cancelTokens: Map<string, any> = new Map()
@@ -39,9 +39,9 @@
 //         timeout: COMMON_API_TIMEOUT,
 //         timeoutErrorMessage: translation.REQUEST_TIMEOUT,
 //       })
-  
+
 //       service.interceptors.response.use(this.handleSuccess, this.handleError)
-  
+
 //       service.interceptors.request.use(async (config) => {
 //         const token = Cookies.get(ACCESS_TOKEN)
 //         if (token) {
@@ -50,10 +50,10 @@
 //         config.baseURL = process.env.NEXT_PUBLIC_API_URL
 //         return config
 //       })
-  
+
 //       this.service = service
 //     }
-  
+
 //     private createCancelTokenForPath(path: string) {
 //       if (this.cancelTokens.has(path)) {
 //         const cancelTokenSource = this.cancelTokens.get(path)
@@ -63,11 +63,11 @@
 //       this.cancelTokens.set(path, newCancelTokenSource)
 //       return newCancelTokenSource.token
 //     }
-  
+
 //     handleSuccess(response: AxiosResponse) {
 //       return response
 //     }
-  
+
 //     processQueue(error: Error | AxiosError | null, token: string | null = null) {
 //       this.failedQueue.forEach((prom) => {
 //         if (token) {
@@ -78,12 +78,12 @@
 //       })
 //       this.failedQueue = []
 //     }
-  
+
 //     handleError = async (
 //       error: AxiosError
 //     ): Promise<AxiosResponse | ApiError> => {
 //       const originalRequest = error.config
-  
+
 //       if (error.response && error.response.status === 401) {
 //         if (
 //           `${process.env.NEXT_PUBLIC_API_URL}${translation.STORE_AUTHORIZATION}` ===
@@ -96,19 +96,19 @@
 //         if (!this.isRefreshing) {
 //           this.isRefreshing = true
 //           const oldAccessToken = Cookies.get(ACCESS_TOKEN)
-  
+
 //           if (oldAccessToken) {
 //             // Return a promise to handle token refresh
 //             return new Promise((resolve, reject) => {
 //               this.refreshAccessToken(oldAccessToken)
 //                 .then((tokenResponse) => {
 //                   const newAccessToken = tokenResponse?.data?.accessToken
-  
+
 //                   if (newAccessToken) {
 //                     // Store new token and retry failed requests
 //                     Cookies.set(ACCESS_TOKEN, newAccessToken)
 //                     this.processQueue(null, newAccessToken)
-  
+
 //                     // Retry the original request
 //                     if (originalRequest) {
 //                       originalRequest.headers['Authorization'] =
@@ -158,10 +158,10 @@
 //             })
 //         }
 //       }
-  
+
 //       return Promise.reject(error)
 //     }
-  
+
 //     async refreshAccessToken(
 //       accessToken: string,
 //       timeout?: number,
@@ -180,7 +180,7 @@
 //         )
 //         .then((response) => response)
 //     }
-  
+
 //     async get(
 //       path: string,
 //       headers?: apiHeaders,
@@ -196,7 +196,7 @@
 //         })
 //         .then((response: AxiosResponse) => response)
 //     }
-  
+
 //     async patch<T>(
 //       path: string,
 //       payload: T,
@@ -217,7 +217,7 @@
 //         })
 //         .then((response: AxiosResponse) => response)
 //     }
-  
+
 //     async post<T>(
 //       path: string,
 //       payload: T,
@@ -255,11 +255,11 @@
 //               this.isApi1Pending = false
 //             }
 //           }
-  
+
 //           return response
 //         })
 //     }
-  
+
 //     async delete<T>(
 //       path: string,
 //       payload: T,
@@ -280,7 +280,7 @@
 //         })
 //         .then((response: AxiosResponse) => response)
 //     }
-  
+
 //     async put<T>(
 //       path: string,
 //       payload: T,
@@ -302,6 +302,5 @@
 //         .then((response: AxiosResponse) => response)
 //     }
 //   }
-  
+
 //   export default new NetworkClient()
-  

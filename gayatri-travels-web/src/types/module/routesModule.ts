@@ -1,3 +1,3 @@
 export interface Routes {
-    [key: string]: string
+  [key: string]: string;
 }
