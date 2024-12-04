@@ -13,7 +13,7 @@ function initStore(initialState = {}) {
   const store = legacy_createStore(
     rootReducer,
     initialState,
-    composeWithDevTools(bindMiddleware([sagaMiddleware])),
+            composeWithDevTools(bindMiddleware([sagaMiddleware])),
   );
   store.sagaTask = sagaMiddleware.run(rootSaga);
   return store;
