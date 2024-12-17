@@ -155,7 +155,7 @@ const TextInputField = forwardRef<HTMLInputElement, TextInputFieldProps>(
                                 height={23}
                                 width={23}
                                 alt="check-icon"
-                                src={maskedField ? eyeClosedIcon : eyeIcon}
+                                src={maskedField ? eyeIcon : eyeClosedIcon}
                             />
                         </Box>
                     )}
