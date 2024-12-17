@@ -1,122 +1,64 @@
 'use client'
+import { translation } from "@/utils/translation"
+import { Box, Paragraph, Text } from "theme-ui"
+import { TextInputField } from "../core/TextInputField/TextInputField"
+import { ThemeButton } from "../core/Button/Button"
+import flightBook from "@/../public/images/flight-book-banner.svg"
+import Image from "next/image"
 
 export const SignInComponent = () => {
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-            <div className="bg-white shadow-lg rounded-lg flex max-w-5xl w-full">
-                {/* Left Section with Illustration */}
-                <div className="hidden md:flex flex-1 bg-blue-50 items-center justify-center p-6">
-                    <img
-                        src="https://images.pexels.com/photos/1251516/pexels-photo-1251516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="Illustration"
-                        className="max-w-xs md:max-w-sm"
+        <Box as='div' className="min-h-screen bg-[#f2f2f2] flex items-center justify-center">
+            <Box as='div' className="grid grid-cols-1 md:grid-cols-2 w-full max-w-5xl bg-white shadow-lg rounded-lg overflow-hidden">
+
+                <Box as='div' className="md:block bg-gray-100 flex items-center justify-center border-r border-gray-300">
+                    <Image
+                        src={flightBook}
+                        alt="flightBook"
                     />
-                </div>
+                </Box>
 
-                {/* Right Section with Login Form */}
-                <div className="flex-1 p-8 md:p-12">
-                    <div className="text-center mb-8">
-                        <h1 className="text-3xl font-bold text-gray-800">
-                            Welcome back
-                        </h1>
-                        <p className="text-gray-600">
-                            New here?{" "}
-                            <a
-                                href="/signup"
-                                className="text-blue-500 hover:underline font-medium"
-                            >
-                                Create an account
-                            </a>
-                        </p>
-                    </div>
+                <Box as='div' className="p-8 md:p-[50px]">
+                    <Text variant="Primary36SemiBold125" className="mb-6">
+                        {translation?.USER_LOGIN}
+                    </Text>
+                    <Paragraph className="mb-4" variant="DMSans16Medium125">
+                        {translation?.LOGIN_WITH_YOUR_CREDENTIALS}
+                    </Paragraph>
 
-                    <form>
-                        {/* Email Input */}
-                        <div className="mb-4">
-                            <label
-                                htmlFor="email"
-                                className="block text-gray-700 font-medium mb-1"
-                            >
-                                Enter email id
-                            </label>
+                    <TextInputField
+                        label={translation?.EMAIL_OR_PHONE}
+                        placeholder={translation?.ENTER_EMAIL_OR_PHONE}
+                        wrapperClass="mb-[10px]"
+                        isShowRequired
+                    />
+
+                    <TextInputField
+                        label={translation?.PASSWORD}
+                        placeholder={translation?.ENTER_PASSWORD}
+                        wrapperClass="mb-4"
+                        isEyeShow
+                        type="password"
+                        isShowRequired
+                        iconWrapperClassName='cursor-pointer '
+                    />
+
+                    <div className="mb-3">
+                        <label className="mb-3 flex items-center text-sm">
                             <input
-                                type="email"
-                                id="email"
-                                placeholder="user@email.com"
-                                className="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 px-4 py-2"
-                                required
+                                type="checkbox"
+                                className="mr-2 border-gray-300 focus:ring focus:ring-blue-300"
                             />
-                        </div>
-
-                        {/* Password Input */}
-                        <div className="mb-4">
-                            <label
-                                htmlFor="password"
-                                className="block text-gray-700 font-medium mb-1"
-                            >
-                                Enter password
-                            </label>
-                            <div className="relative">
-                                <input
-                                    type="password"
-                                    id="password"
-                                    placeholder="********"
-                                    className="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 px-4 py-2"
-                                    required
-                                />
-                                <button
-                                    type="button"
-                                    className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-800"
-                                >
-                                    <i className="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Remember Me and Forgot Password */}
-                        <div className="mb-3">
-                            <label className="mb-3 flex items-center text-sm">
-                                <input
-                                    type="checkbox"
-                                    className="mr-2 border-gray-300 focus:ring focus:ring-blue-300"
-                                />
-                                Remember me?
-                            </label>
-
-                            <a
-                                href="#"
-                                className="text-blue-500 text-sm hover:underline"
-                            >
-                                Forgot password?
-                            </a>
-                        </div>
-
-                        {/* Login Button */}
-                        <button
-                            type="submit"
-                            className="w-full bg-blue-600 text-white rounded-lg px-4 py-2 font-medium shadow hover:bg-blue-700"
-                        >
-                            Login
-                        </button>
-                    </form>
-
-                    {/* Or Divider */}
-                    <div className="flex items-center my-6">
-                        <hr className="flex-grow border-gray-300" />
-                        <span className="px-4 text-gray-500 text-sm">Gayatri Travels</span>
-                        <hr className="flex-grow border-gray-300" />
+                            Remember me?
+                        </label>
                     </div>
-
-                    {/* Social Login Buttons */}
-
-
-                    {/* Footer */}
-                    {/* <p className="text-center text-gray-500 text-sm mt-8">
-              Gayatri Travels. Built by HD.
-            </p> */}
-                </div>
-            </div>
-        </div>
+                    <ThemeButton
+                        text={translation?.LOGIN}
+                        sx={{ width: '100%', py: [2, 2, 2, 2, 2, 2, 3] }}
+                    />
+                </Box>
+            </Box>
+        </Box>
 
     )
 }

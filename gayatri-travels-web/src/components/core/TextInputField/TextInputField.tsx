@@ -10,12 +10,13 @@ const TextInputField = forwardRef<HTMLInputElement, TextInputFieldProps>(
     (
         {
             placeholder,
-            variant = '',
+            variant = 'primaryInput',
             validationVariant = '',
             name = '',
             type,
             disabled = false,
             autoFocus,
+            requiredIconSx,
             Inputsx,
             onChange,
             onIconClick,
@@ -36,7 +37,7 @@ const TextInputField = forwardRef<HTMLInputElement, TextInputFieldProps>(
             wrapperSx,
             manualErrorMessage,
             iconSrc,
-            labelVariant = '',
+            labelVariant = 'DMSans16MRegular125',
             wrapperVariant = '',
             labelClassName,
             autoComplete = 'off',
@@ -47,6 +48,7 @@ const TextInputField = forwardRef<HTMLInputElement, TextInputFieldProps>(
             iconWrapperSx,
             manualErrorSX,
             readOnly = false,
+            isShowRequired = false,
             isEyeShow = true,
             id = '',
             inputWidth = '',
@@ -77,15 +79,28 @@ const TextInputField = forwardRef<HTMLInputElement, TextInputFieldProps>(
                     {label && (
                         <Text
                             className={labelClassName}
-                            as={'label'}
-                            sx={{ color: 'black', mb: 10, ...labelSx }}
+                            as='label'
+                            sx={{ mb: 10, ...labelSx }}
                             variant={labelVariant}
                             aria-labelledby={id}
                             {...labelProps}
                         >
                             {label}
+                            {isShowRequired && (
+                                <Text
+                                    as="span"
+                                    sx={{
+                                        ...requiredIconSx,
+                                        color: 'red',
+                                        ml: '4px'
+                                    }}
+                                >
+                                    *
+                                </Text>
+                            )}
                         </Text>
                     )}
+
                     <Input
                         id={id}
                         variant={variant}
@@ -130,8 +145,8 @@ const TextInputField = forwardRef<HTMLInputElement, TextInputFieldProps>(
                             sx={{
                                 ...iconWrapperSx,
                                 position: 'absolute',
-                                right: '30px',
-                                top: ['67px', '67px', '60px', '62px', '64px', '69px', '67px'],
+                                right: '16px',
+                                top: ['67px', '67px', '53px', '53px', '53px', '53px', '53px'],
                                 transform: 'translateY(-50%)',
                                 cursor: 'pointer',
                             }}

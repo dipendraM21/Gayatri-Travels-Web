@@ -23,6 +23,7 @@ export interface TextInputFieldProps {
     autoFocus?: boolean;
     labelSx?: ThemeUIStyleObject<Theme>;
     iconWrapperSx?: ThemeUIStyleObject<Theme>;
+    requiredIconSx?: ThemeUIStyleObject<Theme>;
     manualErrorSX?: ThemeUIStyleObject<Theme>;
     Inputsx?: ThemeUIStyleObject<Theme>;
     wrapperSx?: ThemeUIStyleObject<Theme>;
@@ -49,6 +50,7 @@ export interface TextInputFieldProps {
     required?: boolean;
     readOnly?: boolean;
     isPasswordField?: boolean;
+    isShowRequired?: boolean;
     isEyeShow?: boolean;
     id?: string;
     inputWidth?: string;

@@ -1,6 +1,4 @@
 'use client'
-import favoriteStarFilled from '@/../public/images/favorite-star-solid.svg'
-import favoriteStar from '@/../public/images/favorite-star.svg'
 import { ButtonProps } from '@/types/module/themuiModule'
 import Image from 'next/image'
 import { CSSProperties, forwardRef, MouseEvent, useRef } from 'react'
@@ -40,7 +38,7 @@ export const ThemeButton = forwardRef<HTMLButtonElement, ButtonProps>(
             text,
             icon,
             iconRight,
-            textVariant,
+            textVariant = 'DMSans16MDemi125',
             isIconOnly,
             onBlur = () => null,
             onClick = () => null,
@@ -97,16 +95,6 @@ export const ThemeButton = forwardRef<HTMLButtonElement, ButtonProps>(
                 accessKey={accessKey}
                 ref={buttonRef}
             >
-                {isFavoriteIcon && (
-                    <Image
-                        height={18}
-                        width={18}
-                        style={{ position: 'absolute', top: 7, right: 7 }}
-                        alt="favorite"
-                        src={isFavorite ? favoriteStarFilled : favoriteStar}
-                        onClick={toggleFavorite}
-                    />
-                )}
                 {icon && (
                     <Image
                         height={20}
